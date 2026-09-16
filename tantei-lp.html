@@ -14,6 +14,38 @@
 @media(max-width:680px){.wrap{width:calc(100% - 44px)}h2{font-size:25px}.section{padding:38px 0}.hero{display:block;padding-top:245px;min-height:0;background:#faf9f6}.hero-image{height:300px;object-position:76% center}.hero::before{background:linear-gradient(180deg,transparent 120px,#faf9f608 190px,#faf9f6 296px);bottom:auto;height:310px}.hero .wrap{padding:12px 0 34px}.hero h1{font-size:clamp(24px,7vw,32px)}.hero .eyebrow{font-size:12px;margin-bottom:12px}.hero-copy{font-size:14px;margin-top:16px}.hero-note{display:none}.buttons{flex-direction:column;gap:12px;margin-top:22px}.btn{font-size:15px;min-height:50px;padding:12px 18px}.checks{grid-template-columns:1fr;gap:14px}.worries{padding:34px 0}.heading-row{margin-bottom:22px}.cards{grid-template-columns:1fr;gap:10px}.card,.card:nth-last-child(-n+2){grid-column:auto;display:grid;grid-template-columns:40px 1fr;column-gap:18px;text-align:left;padding:21px}.card .icon{grid-row:span 2;margin-top:3px}.card h3{font-size:18px}.card p{margin-top:6px}.flow{grid-template-columns:1fr;gap:5px}.flow li,.flow li:first-child{clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%);min-height:0;padding:18px 22px 28px;display:grid;grid-template-columns:36px 1fr 30px;gap:0 14px;align-items:center}.flow .step{grid-row:span 2;margin:0}.flow .icon{grid-column:3;grid-row:1 / span 2;margin:0}.flow p{grid-column:2}.philosophy{padding:38px 0}.philosophy .wrap{grid-template-columns:1fr;gap:22px}.philosophy h2{font-size:27px}.philosophy-heading{padding-left:16px}.philosophy-heading p{font-size:12px}.philosophy-copy{border-left:0;padding-left:0}.why{padding:34px 0 155px}.why::before{background:linear-gradient(180deg,white 0%,#fffffff5 55%,#ffffff14 100%),url('assets/tantei-lp/desk.jpg') right bottom/cover}.why p{font-size:14px}.credentials{padding:28px 0 34px}.credentials-top{flex-direction:column;align-items:stretch;gap:20px}.portrait{width:82px;height:82px}.achievement{padding:17px 12px}.achievement h3{font-size:13px;min-height:48px}.metric{font-size:15px}.metric strong{font-size:27px}.achievement p:last-child{font-size:11px}.bottom{grid-template-columns:1fr}.details,.contact{padding:36px 22px}.details{padding-bottom:44px}.contact h2,.details h2{font-size:25px}.contact p{font-size:14px}footer .wrap{flex-direction:column}.footer-links{flex-wrap:wrap}.footnote{font-size:11px}}
 @media(max-width:360px){.hero h1{font-size:24px}.achievements{grid-template-columns:1fr}.achievement h3{min-height:0}.philosophy h2{font-size:24px}}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* PC: 本人情報・実績・CTAを一つの横長ブロックにまとめる。 */
+@media (min-width: 961px) {
+  .credentials { padding-top: 19px; padding-bottom: 25px; }
+  .credentials-top { margin-bottom: 15px; }
+  .credentials .footnote { margin-top: 11px; }
+}
+@media (min-width: 1100px) {
+  .credentials > .wrap {
+    display: grid;
+    grid-template-columns: 242px minmax(0, 1fr) 164px;
+    align-items: center;
+    gap: 0 16px;
+  }
+  .credentials-top { display: contents; }
+  .credentials .person { grid-column: 1; grid-row: 1; gap: 12px; }
+  .credentials .person h3 { font-size: 20px; }
+  .credentials .achievements { grid-column: 2; grid-row: 1; gap: 8px; }
+  .credentials-top > .btn {
+    grid-column: 3;
+    grid-row: 1;
+    padding: 12px 10px;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .credentials .achievement { padding: 13px 8px; }
+  .credentials .achievement h3 { font-size: 12px; min-height: 38px; }
+  .credentials .metric { font-size: 14px; margin-top: 6px; }
+  .credentials .metric strong { font-size: 26px; }
+  .credentials .achievement p:last-child { font-size: 11px; }
+  .credentials .footnote { grid-column: 1 / -1; }
+}
 </style>
 </head>
 <body>
