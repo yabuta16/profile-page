@@ -39,13 +39,16 @@
       color:#3a5968;
       font-weight:600;
       letter-spacing:.02em;
+      text-wrap:balance;
+      word-break:auto-phrase;
     }
-    h1{font-size:clamp(40px,5vw,68px);line-height:1.28;margin-bottom:22px}
+    h1{font-size:clamp(38px,4vw,54px);line-height:1.3;margin-bottom:20px}
     h2{font-size:clamp(30px,3.8vw,48px);line-height:1.44;margin-bottom:18px}
     h3{font-size:25px;line-height:1.5}
-    p{color:#60737d}
+    p{color:#60737d;word-break:auto-phrase}
     .lead{font-size:17px;max-width:760px}
     .gold{color:#c89f87}
+    .no-break{white-space:nowrap}
     .btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
@@ -56,27 +59,28 @@
     .btn.secondary{background:#fff;color:#3a5968}
     .note{font-size:13px;color:#839099;margin-top:12px}
     .hero{
-      min-height:780px;
+      min-height:700px;
       background:
         linear-gradient(rgba(253,250,246,.74),rgba(253,250,246,.68)),
         url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;
     }
-    .hero .wrap{min-height:780px;display:flex;align-items:center}
+    .hero .wrap{min-height:700px;display:flex;align-items:center}
     .hero-card{
-      width:min(660px,100%);
+      width:min(760px,100%);
       background:rgba(255,255,255,.82);
       border:1px solid rgba(200,159,135,.18);
       backdrop-filter:blur(10px);
       box-shadow:0 18px 44px rgba(58,89,104,.08);
-      padding:46px 44px;
+      padding:42px 44px;
     }
-    .hero-card .overline{font-size:14px;letter-spacing:.12em;margin-bottom:18px;color:#71828c}
-    .hero-card .statement{
-      font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
-      font-size:18px;color:#3a5968;margin-bottom:20px
-    }
-    .hero-card .rule{width:70px;height:2px;background:#c89f87;margin:22px 0}
+    .hero-card .overline{font-size:14px;font-weight:700;letter-spacing:.08em;margin-bottom:16px;color:#71828c}
+    .hero-line{display:block;white-space:nowrap}
+    .hero-card .rule{width:70px;height:2px;background:#c89f87;margin:18px 0}
     .hero-card p{font-size:17px}
+    .hero-card p,.lead,.result-card p{text-wrap:pretty}
+    .hero-description{margin-bottom:10px}
+    .hero-assurance{margin-bottom:0;font-weight:700;color:#3a5968}
+    .hero-card .btns{margin-top:24px}
     .photo-strip{
       display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-42px;position:relative;z-index:3
     }
@@ -85,12 +89,13 @@
     }
     .photo-card .img{height:180px;background-size:cover;background-position:center}
     .photo-card .cap{padding:14px 16px;font-size:13px;font-weight:700;color:#4c6470}
-    .section-intro h2{max-width:900px}
+    .section-intro h2{max-width:none;font-size:clamp(32px,3.2vw,42px);white-space:nowrap}
     .section-intro .lead{margin-bottom:0}
     .issue-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:34px}
     .issue{
       padding:16px 0 16px 22px;border-left:2px solid #efe5da;
-      font-size:16px;font-weight:700;color:#3a5968
+      font-size:16px;font-weight:700;color:#3a5968;
+      text-wrap:pretty;word-break:auto-phrase
     }
     .issue:before{content:"✓";color:#c89f87;margin-right:12px}
     .feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:38px}
@@ -98,8 +103,12 @@
     .icon{width:48px;height:48px;margin:0 auto 16px;display:grid;place-items:center;color:#c89f87}
     .icon svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
     .feature h3{font-size:20px;margin:0 0 10px}
+    .feature p,.step p{word-break:auto-phrase;text-wrap:pretty}
     .feature p{font-size:14px}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .approach-title,.audit-title{font-size:clamp(32px,3vw,40px)}
+    .process-line,.audit-line{white-space:nowrap}
+    .process-unit{white-space:nowrap}
     .inline-photo{
       height:380px;
       background:
@@ -120,6 +129,7 @@
       font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
       font-size:22px;color:#3a5968;border-bottom:2px solid #3a5968;padding-bottom:12px
     }
+    .report-heading{white-space:nowrap}
     .sample{float:right;font-size:10px;background:#f2e8dc;padding:5px 8px;color:#8a6e49}
     .fake-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:12px}
     .fake-table td,.fake-table th{border-bottom:1px solid #e4e8ea;padding:9px;text-align:left}
@@ -129,8 +139,9 @@
     .cta-band{
       background:#fbf7f2;padding:34px 36px;border:1px solid #eee5d9;text-align:center
     }
-    .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
-    .result-card{background:#fff;border:1px solid #eee5da;padding:26px 22px;min-height:240px}
+    .results-title{font-size:clamp(32px,3.4vw,44px)}
+    .results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+    .result-card{background:#fff;border:1px solid #eee5da;padding:28px 26px;min-height:230px}
     .result-card .small{font-size:12px;font-weight:700;letter-spacing:.08em;color:#c89f87;margin-bottom:10px}
     .result-card h3{font-size:22px;margin-bottom:10px}
     .result-card p{font-size:14px}
@@ -157,6 +168,7 @@
     @media(max-width:980px){
       .navlinks a:not(.cta-mini){display:none}
       .split{grid-template-columns:1fr}
+      .section-intro h2{white-space:normal}
       .feature-grid{grid-template-columns:1fr 1fr}
       .results-grid{grid-template-columns:1fr 1fr}
       .flow{grid-template-columns:1fr}
@@ -168,8 +180,19 @@
       h1{font-size:39px}
       h2{font-size:30px}
       .section-intro h2{font-size:clamp(22px,6.9vw,30px)}
+      .approach-title{font-size:clamp(25px,7vw,32px)}
+      .process-line{white-space:normal}
+      .audit-title{font-size:clamp(21px,6.7vw,30px)}
+      .results-title{font-size:clamp(23px,7vw,30px)}
       .hero,.hero .wrap{min-height:auto}
-      .hero-card{padding:34px 24px;margin:44px 0}
+      .hero-card{padding:34px 18px;margin:44px 0}
+      .hero-card h1{font-size:clamp(20px,6.5vw,30px)}
+      .btn{padding:0 18px;font-size:14px;white-space:nowrap;max-width:100%}
+      .sheet.front{inset:0 20px 45px 0;padding:24px 20px}
+      .report-title{font-size:clamp(17px,5vw,22px)}
+      .report-title .sample{float:none;display:block;width:max-content;margin:8px 0 0 auto}
+      .report{overflow:hidden}
+      .result-card h3{font-size:clamp(18px,5.6vw,22px)}
       .photo-strip,.issue-grid,.feature-grid,.meet-grid,.results-grid{grid-template-columns:1fr}
       .image-banner{height:220px}
       .footer-grid{grid-template-columns:1fr}
@@ -186,7 +209,7 @@
         <a href="#audit">問い合わせ棚卸し</a>
         <a href="#results">チーム実績</a>
         <a href="#faq">FAQ</a>
-        <a class="cta-mini" href="#booking">30分相談</a>
+        <a class="cta-mini" href="#booking">15分相談</a>
       </nav>
     </div>
   </header>
@@ -194,16 +217,13 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-card">
-        <div class="overline">TEAM NAKAZATO / PROPERTY MANAGEMENT SUPPORT</div>
-        <div class="statement">不動産管理会社さま向け</div>
-        <h1>入居者・オーナー対応に追われる毎日を、<br><span class="gold">回る仕組みに。</span></h1>
+        <div class="overline">不動産管理会社さま向け</div>
+        <h1><span class="hero-line">入居者・オーナー対応を、</span><span class="hero-line gold">回る仕組みに。</span></h1>
         <div class="rule"></div>
-        <p>FAQ・対応ルール・社内共有まで整えます。</p>
-        <p>繰り返し対応や、担当者依存の仕事を減らし、<br>誰が対応しても迷いにくい状態をつくります。</p>
-        <p><b style="color:#3a5968">お客様とのやり取りは、これまで通り御社のままで。</b></p>
+        <p class="hero-description">FAQ・対応ルール・社内共有まで整えます。</p>
+        <p class="hero-assurance">お客様とのやり取りは、これまで通り御社のままで。</p>
         <div class="btns">
-          <a class="btn primary" href="#booking">30分のオンライン相談を予約する →</a>
-          <a class="btn secondary" href="#support">具体的な支援内容を見る →</a>
+          <a class="btn primary" href="#booking">15分のオンライン相談を予約する</a>
         </div>
         <div class="note">オンライン・全国対応</div>
       </div>
@@ -229,7 +249,7 @@
     <div class="wrap">
       <div class="section-intro">
         <div class="kicker">CURRENT ISSUES</div>
-        <h2>こんな問い合わせ対応に、<br>時間を取られていませんか？</h2>
+        <h2><span class="no-break">こんな問い合わせ対応に、</span><wbr><span class="no-break">時間を取られていませんか？</span></h2>
         <p class="lead">本来向き合いたい業務に時間を使うために、まずは問い合わせ対応のまわりにある仕事から整理します。</p>
       </div>
       <div class="issue-grid">
@@ -247,14 +267,14 @@
     <div class="wrap">
       <div class="section-intro">
         <div class="kicker">HOW WE SUPPORT</div>
-        <h2>今のやり方を大きく変えずに、こう整えます。</h2>
+        <h2><span class="no-break">今のやり方を大きく</span><wbr><span class="no-break">変えずに、こう整えます。</span></h2>
         <p class="lead">いきなり仕組みを変えるのではなく、整理しやすいところから順番に整えます。</p>
       </div>
       <div class="feature-grid">
         <div class="feature"><div class="icon"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="10"></circle><path d="m27.5 27.5 9 9M14 23v-5M19 23v-9M24 23v-4"></path></svg></div><h3>見える化</h3><p>どんな問い合わせが多いのか整理します。</p></div>
         <div class="feature"><div class="icon"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 10h32v24H23l-9 6v-6H8z"></path><path d="M16 21h.1M24 21h.1M32 21h.1"></path></svg></div><h3>FAQ整備</h3><p>繰り返し答える内容をまとめます。</p></div>
         <div class="feature"><div class="icon"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="32" rx="2"></rect><path d="M18 8V6h12v2M16 18l2 2 4-5M26 18h7M16 29l2 2 4-5M26 29h7"></path></svg></div><h3>対応ルール</h3><p>判断基準と対応方法をそろえます。</p></div>
-        <div class="feature"><div class="icon"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 14h14l4 5h18v21H6z"></path><path d="M6 19h36M17 30h14M27 26l4 4-4 4"></path></svg></div><h3>社内共有</h3><p>必要な情報を見つけやすくします。</p></div>
+        <div class="feature"><div class="icon"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 14h14l4 5h18v21H6z"></path><path d="M6 19h36M17 30h14M27 26l4 4-4 4"></path></svg></div><h3>社内共有</h3><p>必要な情報を<span class="no-break">見つけやすくします。</span></p></div>
         <div class="feature"><div class="icon"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="13" cy="15" r="5"></circle><circle cx="35" cy="15" r="5"></circle><path d="M5 37c0-6 3-10 8-10 3 0 5 1 6.5 3M43 37c0-6-3-10-8-10-3 0-5 1-6.5 3M18 37h12M26 33l4 4-4 4"></path></svg></div><h3>引き継ぎ</h3><p>担当者が変わっても回りやすい状態へ。</p></div>
       </div>
     </div>
@@ -264,7 +284,7 @@
     <div class="wrap split">
       <div>
         <div class="kicker">APPROACH</div>
-        <h2>問い合わせ対応を、<br><span class="gold">見える化 → 減らす → 定着</span>へ。</h2>
+        <h2 class="approach-title">問い合わせ対応を、<br><span class="gold process-line">見える化 <span class="process-unit">→ 減らす</span> <span class="process-unit">→ 定着へ。</span></span></h2>
         <p class="lead">専用システムを前提にせず、まずは既存の運用の中で、整理しやすいところから整えていきます。</p>
       </div>
       <div class="inline-photo"></div>
@@ -282,8 +302,8 @@
     <div class="wrap split">
       <div>
         <div class="kicker">FIRST STEP</div>
-        <h2>まずは約2週間。<br>問い合わせを棚卸しします。</h2>
-        <p class="lead">受付簿、メール、管理ソフトなどに履歴がある場合は、既存データをできるだけ利用します。記録がない場合のみ、簡単な記録方法をご案内します。</p>
+        <h2 class="audit-title">まずは約2週間。<br><span class="audit-line">問い合わせを棚卸しします。</span></h2>
+        <p class="lead">受付簿、メール、管理ソフトなどに履歴がある場合は、既存データをできるだけ利用します。記録がない場合のみ、簡単な<span class="no-break">記録方法</span>をご案内します。</p>
         <div class="issue-grid" style="grid-template-columns:1fr;margin-top:22px">
           <div class="issue">どの問い合わせが多いか</div>
           <div class="issue">FAQやルールで減らせるものは何か</div>
@@ -295,7 +315,7 @@
       <div class="report">
         <div class="sheet back"></div>
         <div class="sheet front">
-          <div class="report-title">問い合わせ業務改善レポート <span class="sample">SAMPLE</span></div>
+          <div class="report-title"><span class="report-heading">問い合わせ業務改善レポート</span> <span class="sample">SAMPLE</span></div>
           <table class="fake-table">
             <tr><th>分類</th><th>件数</th><th>傾向</th></tr>
             <tr><td>設備・修繕</td><td>18</td><td>エアコン・水回り</td></tr>
@@ -306,7 +326,7 @@
             <span>FAQ化候補</span><span>ルール化候補</span>
             <span>担当者依存</span><span>改善優先順位</span>
           </div>
-          <p style="font-size:11px;margin-top:12px">※ 表示内容・数値はサンプルです。</p>
+          <p style="font-size:11px;margin-top:12px">※ 表示内容・数値は<span class="no-break">サンプルです。</span></p>
         </div>
       </div>
     </div>
@@ -326,18 +346,18 @@
   <section id="results">
     <div class="wrap">
       <div class="kicker">TEAM RESULTS</div>
-      <h2>個人紹介よりも、<br>まずはチームとしての実績を。</h2>
-      <p class="lead">チーム仲里は、問い合わせ対応・品質管理・営業事務・現場運営・業務フロー改善など、実務の積み重ねを持つ4名で支援します。</p>
+      <h2 class="results-title">現場を知るチームだから、<br>仕組みまで整えられる。</h2>
+      <p class="lead">問い合わせ対応・品質管理・業務改善など、それぞれの実務経験を持つ4名で支援します。</p>
       <div class="results-grid">
         <div class="result-card">
           <div class="small">CS / QUALITY</div>
           <h3>問い合わせ対応と<br>品質管理の知見</h3>
-          <p>コールセンター・CS実務20年以上。SV・品質管理・教育統括15年の知見を、対応ルールづくりに活かします。</p>
+          <p>チームリーダーの仲里は、コールセンター・CS実務20年以上。SV・品質管理・教育統括15年の経験を、対応ルールづくりや<span class="no-break">業務改善に活かします。</span></p>
         </div>
         <div class="result-card">
           <div class="small">OPERATIONS</div>
           <h3>数字で見える<br>業務改善の実務</h3>
-          <p>未収・請求漏れ約2,893万円を特定し、約1,514万円を回収。契約不備37社の是正対応まで実施した運用実績があります。</p>
+          <p>業務フローを見直し、見えていなかった未収・請求漏れを特定。課題を可視化し、回収・是正につながる<span class="no-break">仕組みを構築しました。</span></p>
         </div>
         <div class="result-card">
           <div class="small">CUSTOMER SUPPORT</div>
@@ -346,7 +366,7 @@
         </div>
         <div class="result-card">
           <div class="small">FIELD SUPPORT</div>
-          <h3>現場・店舗・事務をまたぐ<br>対応力</h3>
+          <h3><span class="no-break">現場・店舗・事務をまたぐ</span><br>対応力</h3>
           <p>接客、来客対応、請求書関係、給与計算補助、新人教育など、現場の実務を止めないための運営支援経験があります。</p>
         </div>
       </div>
