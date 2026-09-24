@@ -59,28 +59,31 @@
     .btn.secondary{background:#fff;color:#3a5968}
     .note{font-size:13px;color:#839099;margin-top:12px}
     .hero{
-      min-height:700px;
+      min-height:780px;
       background:
         linear-gradient(rgba(253,250,246,.74),rgba(253,250,246,.68)),
         url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;
     }
-    .hero .wrap{min-height:700px;display:flex;align-items:center}
+    .hero .wrap{min-height:780px;display:flex;align-items:center}
     .hero-card{
-      width:min(760px,100%);
+      width:min(720px,100%);
       background:rgba(255,255,255,.82);
       border:1px solid rgba(200,159,135,.18);
       backdrop-filter:blur(10px);
       box-shadow:0 18px 44px rgba(58,89,104,.08);
-      padding:42px 44px;
+      padding:46px 44px;
     }
-    .hero-card .overline{font-size:14px;font-weight:700;letter-spacing:.08em;margin-bottom:16px;color:#71828c}
-    .hero-line{display:block;white-space:nowrap}
-    .hero-card .rule{width:70px;height:2px;background:#c89f87;margin:18px 0}
+    .hero-card .overline{font-size:14px;letter-spacing:.12em;margin-bottom:18px;color:#71828c}
+    .hero-card .statement{
+      font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+      font-size:18px;color:#3a5968;margin-bottom:20px
+    }
+    .hero-card h1{font-size:clamp(34px,3vw,40px);letter-spacing:.01em}
+    .hero-title-line{display:block}
+    .hero-title-nowrap{white-space:nowrap}
+    .hero-card .rule{width:70px;height:2px;background:#c89f87;margin:22px 0}
     .hero-card p{font-size:17px}
     .hero-card p,.lead,.result-card p{text-wrap:pretty}
-    .hero-description{margin-bottom:10px}
-    .hero-assurance{margin-bottom:0;font-weight:700;color:#3a5968}
-    .hero-card .btns{margin-top:24px}
     .photo-strip{
       display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-42px;position:relative;z-index:3
     }
@@ -185,8 +188,10 @@
       .audit-title{font-size:clamp(21px,6.7vw,30px)}
       .results-title{font-size:clamp(23px,7vw,30px)}
       .hero,.hero .wrap{min-height:auto}
-      .hero-card{padding:34px 18px;margin:44px 0}
-      .hero-card h1{font-size:clamp(20px,6.5vw,30px)}
+      .hero-card{padding:34px 24px;margin:44px 0}
+      .hero-card h1{font-size:clamp(22px,6.5vw,30px)}
+      .hero-title-nowrap{white-space:normal}
+      .hero-card .btn{padding:0 12px;font-size:12px;white-space:nowrap}
       .btn{padding:0 18px;font-size:14px;white-space:nowrap;max-width:100%}
       .sheet.front{inset:0 20px 45px 0;padding:24px 20px}
       .report-title{font-size:clamp(17px,5vw,22px)}
@@ -217,13 +222,16 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-card">
-        <div class="overline">不動産管理会社さま向け</div>
-        <h1><span class="hero-line">入居者・オーナー対応を、</span><span class="hero-line gold">回る仕組みに。</span></h1>
+        <div class="overline">TEAM NAKAZATO / PROPERTY MANAGEMENT SUPPORT</div>
+        <div class="statement">不動産管理会社さま向け</div>
+        <h1><span class="hero-title-line no-break">入居者・オーナー対応に</span><span class="hero-title-line hero-title-nowrap"><span class="no-break">追われる毎日を、</span><wbr><span class="gold no-break">回る仕組みに。</span></span></h1>
         <div class="rule"></div>
-        <p class="hero-description">FAQ・対応ルール・社内共有まで整えます。</p>
-        <p class="hero-assurance">お客様とのやり取りは、これまで通り御社のままで。</p>
+        <p>FAQ・対応ルール・社内共有まで整えます。</p>
+        <p>繰り返し対応や、担当者依存の仕事を減らし、<br>誰が対応しても迷いにくい状態をつくります。</p>
+        <p><b style="color:#3a5968">お客様とのやり取りは、これまで通り御社のままで。</b></p>
         <div class="btns">
-          <a class="btn primary" href="#booking">30分のオンライン相談を予約する</a>
+          <a class="btn primary" href="#booking">30分のオンライン相談を予約する →</a>
+          <a class="btn secondary" href="#support">具体的な支援内容を見る →</a>
         </div>
         <div class="note">オンライン・全国対応</div>
       </div>
