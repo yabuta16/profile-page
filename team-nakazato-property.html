@@ -85,7 +85,8 @@
     }
     .photo-card .img{height:180px;background-size:cover;background-position:center}
     .photo-card .cap{padding:14px 16px;font-size:13px;font-weight:700;color:#4c6470}
-    .head-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .section-intro h2{max-width:900px}
+    .section-intro .lead{margin-bottom:0}
     .issue-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:34px}
     .issue{
       padding:16px 0 16px 22px;border-left:2px solid #efe5da;
@@ -154,7 +155,7 @@
     .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;font-size:14px}
     @media(max-width:980px){
       .navlinks a:not(.cta-mini){display:none}
-      .head-row,.split{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
       .feature-grid{grid-template-columns:1fr 1fr}
       .results-grid{grid-template-columns:1fr 1fr}
       .flow{grid-template-columns:1fr}
@@ -165,6 +166,7 @@
       section{padding:64px 0}
       h1{font-size:39px}
       h2{font-size:30px}
+      .section-intro h2{font-size:clamp(22px,6.9vw,30px)}
       .hero,.hero .wrap{min-height:auto}
       .hero-card{padding:34px 24px;margin:44px 0}
       .photo-strip,.issue-grid,.feature-grid,.meet-grid,.results-grid{grid-template-columns:1fr}
@@ -224,11 +226,9 @@
 
   <section id="issues">
     <div class="wrap">
-      <div class="head-row">
-        <div>
-          <div class="kicker">CURRENT ISSUES</div>
-          <h2>こんな問い合わせ対応に、<br>時間を取られていませんか？</h2>
-        </div>
+      <div class="section-intro">
+        <div class="kicker">CURRENT ISSUES</div>
+        <h2>こんな問い合わせ対応に、<br>時間を取られていませんか？</h2>
         <p class="lead">本来向き合いたい業務に時間を使うために、まずは問い合わせ対応のまわりにある仕事から整理します。</p>
       </div>
       <div class="issue-grid">
@@ -244,11 +244,9 @@
 
   <section id="support" style="background:#fcf8f3">
     <div class="wrap">
-      <div class="head-row">
-        <div>
-          <div class="kicker">HOW WE SUPPORT</div>
-          <h2>今のやり方を大きく変えずに、<br>こう整えます。</h2>
-        </div>
+      <div class="section-intro">
+        <div class="kicker">HOW WE SUPPORT</div>
+        <h2>今のやり方を大きく変えずに、こう整えます。</h2>
         <p class="lead">いきなり仕組みを変えるのではなく、整理しやすいところから順番に整えます。</p>
       </div>
       <div class="feature-grid">
