@@ -3,472 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>探偵・調査業向け AI自動化・業務改善支援 | 薮田友美 KazutayAI</title>
-<meta name="description" content="北海道警察での勤務・刑事事件捜査の経験とAIを掛け合わせ、探偵事務所・調査会社の相談対応・追客・案件管理を、現在の運用を変えすぎずに整理します。AI自動化・業務改善支援。初回30分・オンラインで現状を伺います。">
+<title>探偵事務所向け AI活用・業務改善支援 | 薮田友美</title>
+<meta name="description" content="探偵事務所の文字起こし・記録整理・タスク管理・ナレッジ整備を支援。元警察官として約12年の経験を持つ薮田友美が、AI活用と業務改善で社内業務の効率化をお手伝いします。初回30分のオンライン相談から、今の運用に合う進め方を整理します。">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
-
-  :root {
-    --ink: #1c2733;
-    --navy: #24344d;
-    --paper: #f7f6f2;
-    --line: #d8d5cc;
-    --accent: #8a6d3b;
-    --muted: #6b7280;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.9;
-    font-size: 15px;
-  }
-
-  .serif { font-family: 'Shippori Mincho', serif; }
-
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* ===== ヒーロー ===== */
-  header {
-    background: var(--navy);
-    color: #f2f0ea;
-    padding: 72px 0 64px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .tate {
-    writing-mode: vertical-rl;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 21px;
-    font-weight: 600;
-    letter-spacing: 0.35em;
-    line-height: 2.2;
-    color: #cfd6e2;
-    border-right: 1px solid rgba(255,255,255,0.25);
-    padding-right: 24px;
-    height: 240px;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .hero-main { flex: 1; }
-
-  .name-en {
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    color: #9aa6ba;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  h1 {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 14px;
-  }
-
-  .title-line {
-    font-size: 14px;
-    color: #cfd6e2;
-    letter-spacing: 0.06em;
-  }
-
-  .title-line strong { color: #fff; font-weight: 700; }
-
-  .cred-line {
-    font-size: 12.5px;
-    color: #9aa6ba;
-    margin-top: 10px;
-    letter-spacing: 0.04em;
-  }
-
-  /* CTAボタン */
-  .cta-inline { text-align: center; margin-top: 36px; }
-  .btn-cta {
-    display: inline-block;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 16px;
-    letter-spacing: 0.08em;
-    color: #fff;
-    background: var(--navy);
-    padding: 14px 44px;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-  .btn-cta:hover, .btn-cta:focus-visible { opacity: 0.85; }
-  .cta-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
-
-  /* ===== セクション共通 ===== */
-  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type { border-bottom: none; }
-
-  .sec-label {
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    color: var(--accent);
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    margin-bottom: 28px;
-  }
-
-  p + p { margin-top: 1em; }
-  .lead { color: var(--ink); }
-  .lead-sub { font-size: 14px; color: var(--muted); }
-
-  /* ===== 困りごとチェック ===== */
-  .worries { list-style: none; }
-  .worries li {
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 16px 22px;
-    margin-bottom: 12px;
-    font-size: 14.5px;
-    display: flex;
-    gap: 14px;
-    align-items: baseline;
-  }
-  .worries li::before {
-    content: "□";
-    color: var(--accent);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .worries-note { font-size: 13.5px; color: var(--muted); margin-top: 18px; }
-
-  /* ===== 支援メニュー ===== */
-  .menu { display: grid; gap: 20px; }
-  .item {
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 24px 28px;
-  }
-  .item .for {
-    font-size: 12.5px;
-    color: var(--accent);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-  }
-  .item h3 {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .item .desc { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
-  .item .meta {
-    display: flex;
-    gap: 24px;
-    font-size: 13px;
-    border-top: 1px dashed var(--line);
-    padding-top: 12px;
-    flex-wrap: wrap;
-  }
-  .item .meta span { color: var(--muted); }
-  .item .meta strong { color: var(--ink); font-weight: 700; margin-left: 6px; }
-  .menu-note { font-size: 13.5px; color: var(--muted); margin-top: 20px; }
-
-  /* ===== 進め方タイムライン ===== */
-  .timeline { list-style: none; }
-  .timeline li {
-    position: relative;
-    padding: 0 0 28px 32px;
-    border-left: 1px solid var(--line);
-    margin-left: 6px;
-  }
-  .timeline li:last-child { padding-bottom: 0; border-left-color: transparent; }
-  .timeline li::before {
-    content: "";
-    position: absolute;
-    left: -5px;
-    top: 8px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--navy);
-  }
-  .timeline .step {
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: block;
-  }
-  .timeline .role {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 17px;
-    font-weight: 600;
-    margin: 2px 0 6px;
-  }
-  .timeline .desc { font-size: 14px; color: var(--muted); }
-
-  /* ===== 約束ごと ===== */
-  .rules { list-style: none; }
-  .rules li {
-    padding: 14px 0;
-    border-bottom: 1px dashed var(--line);
-    font-size: 14.5px;
-    display: flex;
-    gap: 12px;
-  }
-  .rules li:last-child { border-bottom: none; }
-  .rules li::before {
-    content: "―";
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-  .rules li strong { font-weight: 700; }
-
-  /* ===== なぜ探偵業か ===== */
-  .why-links { margin-top: 22px; font-size: 14px; }
-  .why-links a { color: var(--navy); font-weight: 700; }
-
-  /* ===== 連絡先 ===== */
-  .contact {
-    background: var(--navy);
-    color: #f2f0ea;
-    text-align: center;
-    padding: 56px 24px;
-  }
-  .contact h2 { color: #fff; margin-bottom: 16px; }
-  .contact p { font-size: 14px; color: #cfd6e2; max-width: 480px; margin: 0 auto 24px; }
-  .mail {
-    display: inline-block;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 18px;
-    letter-spacing: 0.04em;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.4);
-    padding: 12px 32px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .mail:hover, .mail:focus-visible { background: rgba(255,255,255,0.12); }
-
-  footer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    padding: 28px 0;
-  }
-  footer a { color: var(--muted); }
-
-  @media (max-width: 600px) {
-    .hero { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
-    .tate {
-      writing-mode: horizontal-tb;
-      height: auto;
-      border-right: none;
-      border-top: 1px solid rgba(255,255,255,0.25);
-      padding: 20px 0 0;
-      font-size: 17px;
-      letter-spacing: 0.2em;
-      line-height: 1.8;
-    }
-    h1 { font-size: 24px; }
-    .item .meta { gap: 12px; }
-    .mail { font-size: 15px; padding: 12px 20px; white-space: nowrap; }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    header .hero-main, header .tate { animation: rise 0.7s ease both; }
-    header .tate { animation-delay: 0.15s; }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: none; }
-    }
-  }
-
-  body { overflow-wrap: anywhere; }
-  .hero-main { min-width: 0; }
-  .btn-cta, .mail { max-width: 100%; }
-  .contact .email-contact { margin-top: 24px; margin-bottom: 0; }
-  .email-contact a { color: #f2f0ea; text-underline-offset: 4px; }
-  @media (max-width: 600px) { .btn-cta, .mail { padding: 12px 18px; font-size: 15px; white-space: normal; } .tate { white-space: normal; } }
+:root { --navy:#203b58; --ink:#243547; --muted:#596977; --line:#dce4ea; --soft:#f4f7fa; --white:#fff; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--white); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; font-size:16px; line-height:1.85; overflow-wrap:anywhere; }
+a { color:var(--navy); text-underline-offset:5px; }
+a:hover { text-decoration-thickness:2px; }
+a:focus-visible { outline:3px solid #44789e; outline-offset:5px; }
+h1,h2,h3,p { margin:0; }
+h1,h2,h3 { color:var(--navy); line-height:1.5; }
+h1 { font-size:clamp(30px,3.3vw,46px); letter-spacing:.025em; font-weight:700; }
+h2 { font-size:clamp(25px,2.5vw,32px); letter-spacing:.02em; }
+h3 { font-size:20px; }
+.wrap { width:min(1120px,100% - 64px); margin-inline:auto; }
+.skip { position:absolute; left:16px; top:-100px; padding:10px 20px; background:white; z-index:2; }
+.skip:focus { top:12px; }
+.site-header { border-bottom:1px solid var(--line); }
+.header-inner { min-height:88px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+.brand { text-decoration:none; font-size:18px; font-weight:700; letter-spacing:.03em; }
+.brand small { display:block; font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.1em; }
+.nav { display:flex; gap:28px; align-items:center; font-size:14px; }
+.nav a { text-decoration:none; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:24px; min-height:52px; padding:13px 24px; border:1px solid var(--navy); border-radius:5px; background:var(--navy); color:white; font-weight:700; text-decoration:none; text-align:center; line-height:1.6; }
+.btn:hover { background:#304f6d; }
+.btn::after { content:'↗'; }
+.nav .btn { min-height:44px; padding:10px 18px; }
+.hero { padding:76px 0 64px; }
+.hero-grid { display:grid; grid-template-columns:1.35fr 1fr; align-items:center; gap:60px; }
+.eyebrow { color:var(--navy); font-size:13px; font-weight:700; letter-spacing:.12em; margin-bottom:18px; }
+.eyebrow::before { content:''; display:inline-block; width:24px; height:2px; background:var(--navy); vertical-align:middle; margin-right:12px; }
+.hero-copy { margin-top:24px; color:var(--muted); max-width:560px; }
+.hero .btn { margin-top:28px; }
+.note { font-size:13px; color:var(--muted); margin-top:12px; }
+.sub-links { display:flex; flex-wrap:wrap; gap:12px 24px; font-size:14px; margin-top:22px; }
+.visual { padding:30px; background:var(--soft); border:1px solid var(--line); border-radius:12px; }
+.visual-label { font-size:12px; color:var(--muted); letter-spacing:.1em; margin-bottom:20px; }
+.visual h2 { font-size:22px; margin-bottom:24px; }
+.sources { display:flex; flex-wrap:wrap; gap:8px; }
+.sources span { background:white; border:1px solid var(--line); border-radius:4px; padding:5px 12px; font-size:13px; }
+.down { margin:12px 0; text-align:center; color:#73879a; font-size:20px; }
+.organize { background:var(--navy); color:white; border-radius:5px; padding:15px; text-align:center; font-weight:700; }
+.record { background:white; border:1px solid var(--line); border-radius:5px; padding:18px; }
+.record p { font-size:14px; font-weight:700; margin-bottom:10px; }
+.record div { display:flex; justify-content:space-between; gap:15px; padding:8px 0; border-top:1px solid var(--line); font-size:13px; }
+.record span { color:var(--muted); }
+.visual .note { font-size:12px; }
+.trust-strip { display:flex; gap:20px 40px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:26px; margin-top:48px; font-size:14px; color:var(--muted); }
+.trust-strip strong { color:var(--navy); }
+.section { padding:80px 0; }
+.soft { background:var(--soft); }
+.section-intro { color:var(--muted); margin-top:16px; max-width:760px; }
+.worries { display:grid; grid-template-columns:repeat(3,1fr); gap:0 32px; padding:0; margin:32px 0 0; list-style:none; }
+.worries li { display:flex; gap:12px; align-items:baseline; padding:20px 0; border-top:1px solid var(--line); font-size:15px; }
+.worries li::before { content:'✓'; color:var(--navy); font-weight:700; }
+.services { display:grid; grid-template-columns:repeat(6,1fr); gap:20px; margin-top:36px; }
+.service { grid-column:span 2; border:1px solid var(--line); border-radius:8px; padding:28px; }
+.service:nth-child(n+4) { grid-column:span 3; }
+.number { font-size:13px; font-weight:700; color:#657f96; letter-spacing:.12em; margin-bottom:16px; }
+.service p { color:var(--muted); font-size:14px; margin-top:14px; }
+.service .output { color:var(--navy); border-top:1px solid var(--line); padding-top:14px; font-size:13px; }
+.flow { display:grid; grid-template-columns:repeat(6,1fr); gap:16px; list-style:none; padding:0; margin:36px 0 0; }
+.flow li { position:relative; padding:22px 15px; border:1px solid var(--line); border-radius:6px; background:white; }
+.flow li:not(:last-child)::after { content:'→'; position:absolute; right:-15px; top:46px; color:#657f96; }
+.flow span { display:block; font-size:12px; color:#657f96; margin-bottom:12px; }
+.flow strong { color:var(--navy); font-size:15px; }
+.flow p { font-size:13px; color:var(--muted); margin-top:8px; }
+.policy { margin-top:28px; border-left:3px solid #8ca4b9; padding:4px 0 4px 18px; font-size:14px; color:var(--muted); }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:72px; }
+.fit-list { list-style:none; padding:0; margin:26px 0 0; }
+.fit-list li { padding:10px 0 10px 24px; position:relative; font-size:15px; }
+.fit-list li::before { content:'✓'; position:absolute; left:0; color:var(--navy); }
+.start { padding:32px; border:1px solid var(--line); border-radius:8px; }
+.start h3 { margin-bottom:20px; }
+.start ol { margin:0; padding-left:24px; }
+.start li { padding:8px 0; font-size:14px; }
+.start li strong { display:block; color:var(--navy); font-size:16px; }
+.about { display:grid; grid-template-columns:1fr 1.4fr; gap:72px; }
+.name { font-size:22px; font-weight:700; margin-top:20px; }
+.name span { font-size:13px; font-weight:400; color:var(--muted); margin-left:12px; }
+.bio { color:var(--muted); font-size:15px; }
+.experience { display:flex; flex-wrap:wrap; gap:12px 28px; border-block:1px solid var(--line); padding:18px 0; margin:24px 0; font-size:14px; }
+.experience strong { color:var(--navy); }
+.about .sub-links a { padding:10px 0; font-weight:700; }
+.demo { margin-top:20px; font-size:13px; color:var(--muted); }
+.contact { padding:72px 0; border-top:1px solid var(--line); text-align:center; }
+.contact p { color:var(--muted); margin:18px auto 0; max-width:660px; }
+.contact .btn { margin-top:28px; }
+.contact .note { font-size:13px; }
+.email { font-size:14px; }
+footer { border-top:1px solid var(--line); padding:26px 0; font-size:12px; color:var(--muted); }
+.footer-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.footer-links { display:flex; gap:24px; flex-wrap:wrap; }
+@media(max-width:960px) {
+.hero-grid { gap:32px; grid-template-columns:1.2fr 1fr; }
+h1 { font-size:34px; }
+.visual { padding:24px; }
+.nav { gap:18px; }
+.nav .service-link { display:none; }
+.service { grid-column:span 3; }
+.service:last-child { grid-column:span 6; }
+.flow { grid-template-columns:repeat(3,1fr); }
+.flow li:nth-child(3)::after { content:none; }
+.split,.about { gap:36px; }
+}
+@media(max-width:680px) {
+.wrap { width:calc(100% - 40px); }
+.header-inner { min-height:78px; gap:12px; }
+.brand { font-size:15px; }
+.brand small { font-size:10px; letter-spacing:0; }
+.nav .profile-link { display:none; }
+.nav .btn { font-size:12px; padding:10px 12px; gap:8px; }
+.hero { padding:44px 0 36px; }
+.hero-grid,.split,.about { grid-template-columns:1fr; gap:32px; }
+h1 { font-size:clamp(28px,7vw,36px); }
+h2 { font-size:25px; }
+.hero-copy { font-size:15px; margin-top:20px; }
+.hero .btn { width:100%; }
+.visual { padding:24px; }
+.trust-strip { margin-top:32px; padding-top:22px; gap:8px 20px; font-size:12px; }
+.section { padding:52px 0; }
+.worries { grid-template-columns:1fr; margin-top:24px; }
+.worries li { padding:16px 0; }
+.services { grid-template-columns:1fr; gap:14px; margin-top:28px; }
+.service,.service:nth-child(n+4),.service:last-child { grid-column:auto; padding:24px; }
+.number { margin-bottom:10px; }
+.flow { grid-template-columns:1fr; gap:16px; }
+.flow li { padding:18px 20px; }
+.flow span { margin-bottom:6px; }
+.flow li:not(:last-child)::after,.flow li:nth-child(3)::after { content:'↓'; top:auto; bottom:-21px; right:calc(50% - 7px); }
+.start { padding:24px; }
+.contact { padding:52px 0; text-align:left; }
+.contact .btn { width:100%; }
+.footer-inner { flex-direction:column; }
+}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap hero">
-    <div class="hero-main">
-      <div class="name-en">For Investigation Agencies</div>
-      <h1>探偵・調査業向け<br>AI自動化・業務改善支援</h1>
-      <p class="title-line">相談の受付から追客・面談・報告まで。<br><strong>取りこぼしのない運用</strong>を、現在のやり方を変えすぎずに整えます。</p>
-      <p class="cred-line">元北海道警察・刑事経験あり ｜ AI自動化・業務改善支援　薮田友美（KazutayAI）</p>
-    </div>
-    <div class="tate">現場を知る者が、<br>現場の仕組みを整える。</div>
+<a class="skip" href="#main">本文へ進む</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="https://yabuta16.github.io/profile-page/">薮田友美 <small>AI活用・業務改善支援</small></a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="service-link" href="#services">できること</a>
+      <a class="profile-link" href="https://yabuta16.github.io/profile-page/">プロフィールを見る</a>
+      <a class="btn" href="https://forms.gle/KwH4L5uzaBvxNLATA" target="_blank" rel="noopener">業務について相談する</a>
+    </nav>
   </div>
 </header>
-
-<main>
-
-  <section>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
-      <div class="sec-label">CHECK</div>
-      <h2>こんな取りこぼし、起きていませんか</h2>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">探偵事務所向け AI活用・業務改善</p>
+          <h1 id="hero-title">記録・整理・進行管理を、<br>AIと仕組みで支える。</h1>
+          <p class="hero-copy">相談記録、文字起こし、案件ごとのタスク管理。<br>探偵事務所の実務を支える周辺業務を整え、調査や相談対応に向き合う時間をつくります。</p>
+          <a class="btn" href="https://forms.gle/KwH4L5uzaBvxNLATA" target="_blank" rel="noopener">現在の業務について相談する</a>
+          <p class="note">初回30分・オンライン相談無料。困っていることから伺います。</p>
+          <div class="sub-links"><a href="#services">支援内容を見る ↓</a><a href="https://yabuta16.github.io/profile-page/career/">職務経歴書を見る</a></div>
+        </div>
+        <div class="visual" aria-label="支援イメージ：散らばった情報を整理し、次の対応を見える形にする">
+          <p class="visual-label">支援のイメージ</p>
+          <h2>散らばる情報を、<br>次の対応が分かる記録へ。</h2>
+          <div class="sources"><span>面談・音声</span><span>LINE・メール</span><span>メモ・ファイル</span></div>
+          <div class="down" aria-hidden="true">↓</div>
+          <div class="organize">文字起こし・要約・情報整理</div>
+          <div class="down" aria-hidden="true">↓</div>
+          <div class="record"><p>案件ごとに、ひと目で確認</p><div><span>相談内容</span><strong>要点・確認事項</strong></div><div><span>次の対応</span><strong>タスク・担当・期限</strong></div></div>
+          <p class="note">内容を人が確認し、記録に反映する運用を設計します。</p>
+        </div>
+      </div>
+      <div class="trust-strip"><span><strong>元警察官として約12年</strong>の経験</span><span>ヒアリング・情報整理・記録作成</span><span>探偵・法律分野の記事制作経験</span></div>
+    </div>
+  </section>
+  <section class="section soft" aria-labelledby="challenges-title">
+    <div class="wrap">
+      <p class="eyebrow">日々の困りごと</p>
+      <h2 id="challenges-title">調査の前後に、時間を取られていませんか。</h2>
       <ul class="worries">
-        <li>電話・メール・LINE・フォーム。窓口が複数あり、対応状況が担当者ごとにバラバラになっている</li>
-        <li>返信したかどうか、いつ追客するかが記憶頼みで、気づいたら連絡が途切れている</li>
-        <li>面談で聞いた内容の引継ぎが口頭やメモ頼みで、担当が変わると最初から聞き直している</li>
-        <li>調査報告書の前工程（写真整理・時系列の転記）に、毎回まとまった時間を取られている</li>
-        <li>過去の類似案件や社内の規程を探すのに時間がかかり、経験の浅いスタッフほど迷っている</li>
-        <li>集客記事を書きたいが、調査業務が忙しく更新が止まっている</li>
+        <li>相談や調査の記録を整理するだけで、時間がかかる</li>
+        <li>面談・ヒアリングの音声を、何度も聞き直している</li>
+        <li>案件の進捗や期限が担当者任せで、確認が漏れやすい</li>
+        <li>LINE、メール、シート、ファイルに情報が散らばっている</li>
+        <li>社長やベテランに聞かないと、対応方法が分からない</li>
+        <li>AIを使いたいが、何から始めればよいか分からない</li>
       </ul>
-      <p class="worries-note">ひとつでも当てはまれば、改善の余地があります。相談は月に何十件と来るのに、対応の仕組みは属人的なまま。多くの事務所で共通するお悩みです。</p>
     </div>
   </section>
-
-  <section>
+  <section class="section" id="services" aria-labelledby="services-title">
     <div class="wrap">
-      <div class="sec-label">SERVICE</div>
-      <h2>課題に合わせて選べる支援メニュー</h2>
-      <p class="lead-sub" style="margin-bottom:28px;">大がかりなシステム導入ではなく、いま使っている道具（スプレッドシート・LINE・フォームなど）を土台に、小さく確実に整えるのが方針です。まず現状を伺い、効果が見込める範囲だけをご提案します。</p>
-      <div class="menu">
-        <div class="item">
-          <div class="for">複数窓口の見落とし・追客漏れに</div>
-          <h3>相談管理ミニCRM</h3>
-          <p class="desc">問い合わせを一つの台帳に集約し、ステータス・次回対応日・担当を一目で把握。追客のし忘れを仕組みで防ぎます。</p>
-          <div class="meta"><span>期間<strong>2〜3週間</strong></span></div>
-        </div>
-        <div class="item">
-          <div class="for">返信のばらつき・確認漏れに</div>
-          <h3>初回対応標準化パック</h3>
-          <p class="desc">初回ヒアリング項目・返信テンプレート・違法目的の確認フローを整備。誰が受けても同じ品質で応対できる状態にします。</p>
-          <div class="meta"><span>期間<strong>1〜2週間</strong></span></div>
-        </div>
-        <div class="item">
-          <div class="for">引継ぎ・案件の検索時間に</div>
-          <h3>面談記録・案件進捗パック</h3>
-          <p class="desc">面談内容の要約、案件ごとの進捗ボード、期限通知、閲覧権限の整理まで。2名以上で回す事務所の情報共有を支えます。</p>
-          <div class="meta"><span>期間<strong>3〜4週間</strong></span></div>
-        </div>
-        <div class="item">
-          <div class="for">報告書前の写真整理・転記に</div>
-          <h3>報告書前工程支援</h3>
-          <p class="desc">調査素材の分類と時系列整理、下書きの作成までを支援。最終確認と仕上げは必ず人が行う前提で、作業時間を圧縮します。</p>
-          <div class="meta"><span>期間<strong>3〜5週間</strong></span></div>
-        </div>
-        <div class="item">
-          <div class="for">過去案件・規程の検索に</div>
-          <h3>社内ナレッジ検索</h3>
-          <p class="desc">匿名化した社内資料を対象に、根拠を示しながら答える検索の仕組みを構築。権限管理を前提に、小さな範囲の試験導入から始めます。</p>
-          <div class="meta"><span>期間<strong>4〜6週間</strong></span></div>
-        </div>
-        <div class="item">
-          <div class="for">把握できていない生成AI利用・情報管理リスクに</div>
-          <h3>シャドーAI調査・対策支援</h3>
-          <p class="desc">スタッフが個人のChatGPTなどを業務で利用し、顧客情報や相談内容、社内資料などを会社が把握しないまま生成AIへ入力している状態を「シャドーAI」と呼びます。社内のAI利用状況とリスクを整理し、必要に応じて利用ルールの策定や社員研修、安全な運用体制づくりを支援します。</p>
-          <div class="meta"><span>期間<strong>個別相談</strong></span></div>
-        </div>
-        <div class="item">
-          <div class="for">検索・AIからの見つかりにくさに</div>
-          <h3>SEO記事・AI検索対応・集客導線支援</h3>
-          <p class="desc">検索意図の設計から記事の継続運用、問い合わせ導線への接続まで。あわせて、ChatGPTなどのAI検索で御社がどう見えているか・競合と比べてどうかを確認し、AIにも人にも正しく伝わるよう情報を整えます。調査・法律分野での執筆実績をそのまま活かします。</p>
-          <div class="meta"><span>期間<strong>月次契約</strong></span></div>
-        </div>
+      <p class="eyebrow">できること</p>
+      <h2 id="services-title">実務に合わせた、5つの支援。</h2>
+      <p class="section-intro">いま使っている道具や仕事の進め方を伺い、負担の大きい業務から整えます。AIの活用と、管理方法の見直しを組み合わせた支援です。</p>
+      <div class="services">
+        <article class="service"><div class="number">01 / 業務の見直し</div><h3>業務整理・AI導入支援</h3><p>業務フローを整理し、AIを活用できる作業を洗い出します。人が担う判断と、AIに任せる作業を分け、導入後の運用まで考えます。</p><p class="output">整えるもの：業務の流れ・改善候補・運用イメージ</p></article>
+        <article class="service"><div class="number">02 / 記録の負担軽減</div><h3>文字起こし・要約・記録整理</h3><p>面談やヒアリング内容を文字に起こし、要点や確認事項を抽出。人が内容を確認したうえで、後から読み返し、再利用しやすい記録に整えます。</p><p class="output">整えるもの：相談記録・要約・確認事項の一覧</p></article>
+        <article class="service"><div class="number">03 / 抜け漏れの予防</div><h3>タスク・案件管理の整理</h3><p>案件ごとの進捗、担当、期限、次の対応を見える形に。Notionやスプレッドシートなどを活用し、必要に応じて期限通知の自動化も検討します。</p><p class="output">整えるもの：案件台帳・タスク一覧・対応予定</p></article>
+        <article class="service"><div class="number">04 / 属人化の解消</div><h3>社内知識・ナレッジ整理</h3><p>過去案件の記録や、よくある対応を分類。マニュアルや引き継ぎ資料を整え、担当者が変わっても必要な情報を探せる状態をつくります。</p><p class="output">整えるもの：社内資料の分類・対応集・業務マニュアル</p></article>
+        <article class="service"><div class="number">05 / 日々の事務を効率化</div><h3>AIを使った実務効率化</h3><p>記録作成の補助、社内連絡や文章のたたき台づくり、情報整理を支援。繰り返す作業は自動化も検討し、現場で続けられる使い方に落とし込みます。</p><p class="output">整えるもの：文章のひな形・AIの使い方・定型作業の流れ</p></article>
       </div>
-      <p class="menu-note">※費用は課題の内容・規模に応じて、ヒアリングのうえ着手前に確定金額をご提示します。初回相談に費用はかかりません。</p>
-      <div class="cta-inline">
-        <a class="btn-cta" href="https://forms.gle/KwH4L5uzaBvxNLATA" target="_blank" rel="noopener">現在の業務について相談する</a>
-        <p class="cta-note">初回30分・オンラインで現状を伺います。改善余地の有無から整理します。</p>
-      </div>
+      <p class="note">支援範囲・費用・期間は、業務内容を伺ったうえで着手前にご提案します。</p>
     </div>
   </section>
-
-  <section>
+  <section class="section soft" aria-labelledby="flow-title">
     <div class="wrap">
-      <div class="sec-label">FLOW</div>
-      <h2>小さく始めて、効果を確かめる</h2>
-      <ul class="timeline">
-        <li>
-          <span class="step">STEP 1 ｜ 現状の整理</span>
-          <div class="role">30分オンラインヒアリング</div>
-          <p class="desc">相談件数・窓口・担当人数・現在の流れを伺います。売り込みはしません。改善余地があるかどうかだけ、率直にお伝えします。</p>
-        </li>
-        <li>
-          <span class="step">STEP 2 ｜ 改善候補の整理</span>
-          <div class="role">ミニ診断（A4・1枚）</div>
-          <p class="desc">伺った内容と貴社サイトをもとに、気づいた点と改善候補を1枚に整理してお渡しします。社内検討の材料にそのまま使えます。</p>
-        </li>
-        <li>
-          <span class="step">STEP 3 ｜ お見積りのうえ</span>
-          <div class="role">小さく始める</div>
-          <p class="desc">改善候補を一つに絞り、2〜4週間で効果測定できる範囲に限定して着手します。既存の運用は変えすぎません。</p>
-        </li>
-        <li>
-          <span class="step">STEP 4</span>
-          <div class="role">効果を確認して、次を判断</div>
-          <p class="desc">削減できた時間・防げた漏れを数字で確認し、続けるか、広げるか、止めるかを一緒に判断します。</p>
-        </li>
-      </ul>
+      <p class="eyebrow">導入イメージ</p><h2 id="flow-title">相談内容を、次の対応につなげる。</h2>
+      <p class="section-intro">たとえば、面談後の記録業務なら。情報を残すだけでなく、誰が何をするかまで確認できる流れを整えます。</p>
+      <ol class="flow">
+        <li><span>01</span><strong>面談・相談内容</strong><p>扱える音声やメモを用意</p></li>
+        <li><span>02</span><strong>文字起こし</strong><p>音声を文字に変換</p></li>
+        <li><span>03</span><strong>要点整理</strong><p>要約・確認事項を人が確認</p></li>
+        <li><span>04</span><strong>タスク化</strong><p>担当・期限・作業を整理</p></li>
+        <li><span>05</span><strong>記録蓄積</strong><p>案件ごとの保管先に集約</p></li>
+        <li><span>06</span><strong>次回対応を確認</strong><p>進捗と次の行動を共有</p></li>
+      </ol>
+      <p class="policy">AIは文字起こしや整理の補助に使い、内容の確認・調査・法的判断は人が担います。ご依頼者の実データはお預かりせず、試験導入は匿名化したサンプルで実施。利用する情報の範囲、保管場所、閲覧権限、削除ルールを事前に整理します。</p>
     </div>
   </section>
-
-  <section>
-    <div class="wrap">
-      <div class="sec-label">POLICY</div>
-      <h2>お約束していること</h2>
-      <ul class="rules">
-        <li><span><strong>ご依頼者の実データはお預かりしません。</strong>試験導入は匿名化したサンプルで行い、保管場所・閲覧権限・削除ルールを事前に取り決めます。</span></li>
-        <li><span><strong>既存の運用を壊しません。</strong>いま使っている道具を土台に、現場が続けられる形だけをご提案します。</span></li>
-        <li><span><strong>効果が見込めない場合は、正直にそうお伝えします。</strong>前職で培った、事実に基づいて判断する姿勢は変わりません。</span></li>
-        <li><span><strong>調査の最終判断・報告書の仕上げは人が行う前提です。</strong>仕組みが担うのは、その手前の整理までです。</span></li>
-      </ul>
+  <section class="section" aria-labelledby="fit-title">
+    <div class="wrap split">
+      <div><p class="eyebrow">こんな事務所に</p><h2 id="fit-title">少人数でも、<br>引き継げる仕組みを。</h2><ul class="fit-list"><li>少人数で調査から事務まで回している</li><li>記録整理や文字起こしに時間がかかっている</li><li>AIの使いどころを一緒に考えてほしい</li><li>散らばった社内情報をまとめたい</li><li>将来の引き継ぎに備えて業務を整理したい</li></ul></div>
+      <div class="start"><h3>まずは、ひとつの業務から。</h3><ol><li><strong>現在の困りごとを伺う</strong>初回30分のオンライン相談で、業務と使っている道具を確認します。</li><li><strong>支援内容・費用を決める</strong>改善候補を整理し、取り組む範囲と進め方をご提案します。</li><li><strong>小さく試して、見直す</strong>サンプルで運用を試し、作業時間や使いやすさを一緒に確認します。</li></ol></div>
     </div>
   </section>
-
-  <section>
-    <div class="wrap">
-      <div class="sec-label">WHY</div>
-      <h2>なぜ、探偵・調査業なのか</h2>
-      <p class="lead">2012年4月から2024年9月まで、北海道警察に約12年間勤務し、地域警察や刑事事件捜査に従事しました。不安を抱えた方から話を聞くこと、記録を残すこと、確認漏れが結果を左右すること。調査のお仕事に流れる緊張感は、身をもって知っているつもりです。</p>
-      <p class="lead">退職後は、探偵事務所・法律事務所向けの記事執筆と、複数業種での業務自動化を手がけてきました。調査業向けには案件管理アプリ「TANTEI」を自主開発し、デモを公開しています。現場の言葉が通じる支援者として、お力になれれば幸いです。</p>
-      <p class="why-links">
-        ▶ 案件管理アプリ「TANTEI」<a href="https://tantei-app.vercel.app" target="_blank" rel="noopener">デモを見る</a><br>
-        ▶ 経歴・実績の詳細は<a href="./" >プロフィールページ</a>・<a href="career/">職務経歴書</a>へ
-      </p>
+  <section class="section soft" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div><p class="eyebrow">支援する人</p><h2 id="about-title">話を聴き、情報を整理し、<br>使える記録へ。</h2><p class="name">薮田友美<span>KazutayAI</span></p></div>
+      <div><p class="bio">北海道警察で約12年間、相談対応や聴取、書類・記録作成に携わりました。状況を把握し、必要な情報を整理してきた経験を、現在のAI活用・業務改善支援に活かしています。</p><div class="experience"><span>法律関連記事 <strong>74本</strong></span><span>探偵関連記事 <strong>41本</strong></span></div><p class="bio">経歴や制作実績、仕事への取り組み方は、以下のページでご覧いただけます。</p><div class="sub-links"><a href="https://yabuta16.github.io/profile-page/">プロフィールを見る ↗</a><a href="https://yabuta16.github.io/profile-page/career/">職務経歴書を見る ↗</a></div><p class="demo">自主開発の例：案件管理アプリ「TANTEI」<a href="https://tantei-app.vercel.app" target="_blank" rel="noopener">デモを見る ↗</a></p></div>
     </div>
   </section>
-
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap"><p class="eyebrow">お問い合わせ</p><h2 id="contact-title">「この作業、もう少し楽にできる？」<br>そんな相談からで大丈夫です。</h2><p>記録整理、文字起こし、案件管理など、時間がかかっている業務をお聞かせください。AIを使うべきかも含め、今の運用に合う方法を一緒に考えます。</p><a class="btn" href="https://forms.gle/KwH4L5uzaBvxNLATA" target="_blank" rel="noopener">現在の業務について相談する</a><p class="note">初回30分・オンライン相談無料。フォームは別タブで開きます。<br>初回は、ご依頼者の氏名や具体的な調査情報を含めず、業務の概要だけで構いません。</p><p class="email">メールでのご相談：<a href="mailto:kazutaya26@gmail.com">kazutaya26@gmail.com</a></p></div>
+  </section>
 </main>
-
-<div class="contact">
-  <h2 class="serif">現在の業務のご相談</h2>
-  <p>問い合わせ・追客・案件管理・面談・報告業務など、現在の業務についてお聞かせください。初回30分・オンラインで現状を伺います。改善余地の有無から整理します。</p>
-  <a class="mail" href="https://forms.gle/KwH4L5uzaBvxNLATA" target="_blank" rel="noopener">現在の業務について相談する</a>
-<p class="email-contact">メールでのご相談<br><a href="mailto:kazutaya26@gmail.com">kazutaya26@gmail.com</a></p>
-</div>
-
-<footer>
-  <div class="wrap">薮田友美（KazutayAI）｜ <a href="./">プロフィール</a></div>
-
+<footer><div class="wrap footer-inner"><span>薮田友美（KazutayAI）｜探偵事務所向け AI活用・業務改善支援</span><div class="footer-links"><a href="https://yabuta16.github.io/profile-page/">プロフィールを見る</a><a href="https://yabuta16.github.io/profile-page/career/">職務経歴書を見る</a></div></div>
 <!-- SNS運用開始後：このnav内に確認済みURLのリンクを追加し、hidden属性を外す。 -->
 <nav class="social-links" aria-label="SNS" hidden></nav>
 </footer>
-
 </body>
 </html>
